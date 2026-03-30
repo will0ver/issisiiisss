@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Dash — 2D Platformer</title>
+    <meta name="description" content="A fun 2D platformer game with smooth physics, enemies, collectibles, and beautiful pixel art aesthetics.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- Title Screen Overlay -->
+        <div id="title-screen" class="overlay active">
+            <div class="title-content">
+                <h1 class="game-title">
+                    <span class="title-star">★</span>
+                    Stellar Dash
+                    <span class="title-star">★</span>
+                </h1>
+                <p class="subtitle">A Cosmic Platformer Adventure</p>
+                <div class="menu-buttons">
+                    <button id="btn-play" class="menu-btn primary">▶ Play Game</button>
+                    <button id="btn-how" class="menu-btn">? How to Play</button>
+                </div>
+                <p class="controls-hint">Press ENTER to start</p>
+            </div>
+            <div class="floating-stars"></div>
+        </div>
+
+        <!-- How To Play Overlay -->
+        <div id="how-screen" class="overlay">
+            <div class="how-content">
+                <h2>How to Play</h2>
+                <div class="control-grid">
+                    <div class="control-item">
+                        <kbd>←</kbd><kbd>→</kbd> or <kbd>A</kbd><kbd>D</kbd>
+                        <span>Move</span>
+                    </div>
+                    <div class="control-item">
+                        <kbd>Space</kbd> or <kbd>↑</kbd> or <kbd>W</kbd>
+                        <span>Jump</span>
+                    </div>
+                    <div class="control-item">
+                        <kbd>Space</kbd> (in air)
+                        <span>Double Jump</span>
+                    </div>
+                </div>
+                <ul class="tips">
+                    <li>🌟 Collect stars to increase your score</li>
+                    <li>💎 Grab gems for bonus points</li>
+                    <li>🍄 Stomp enemies from above to defeat them</li>
+                    <li>❤️ Avoid hazards — you have 3 lives!</li>
+                    <li>🚩 Reach the flag to beat the level!</li>
+                </ul>
+                <button id="btn-back" class="menu-btn">← Back</button>
+            </div>
+        </div>
+
+        <!-- Pause Overlay -->
+        <div id="pause-screen" class="overlay">
+            <div class="pause-content">
+                <h2>⏸ Paused</h2>
+                <div class="menu-buttons">
+                    <button id="btn-resume" class="menu-btn primary">▶ Resume</button>
+                    <button id="btn-quit" class="menu-btn">🏠 Main Menu</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Over Overlay -->
+        <div id="gameover-screen" class="overlay">
+            <div class="gameover-content">
+                <h2 class="gameover-title">Game Over</h2>
+                <p id="final-score" class="final-score">Score: 0</p>
+                <div class="menu-buttons">
+                    <button id="btn-retry" class="menu-btn primary">↺ Try Again</button>
+                    <button id="btn-menu" class="menu-btn">🏠 Main Menu</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Level Complete Overlay -->
+        <div id="win-screen" class="overlay">
+            <div class="win-content">
+                <h2 class="win-title">🎉 Level Complete!</h2>
+                <p id="win-score" class="final-score">Score: 0</p>
+                <p id="win-time" class="final-score">Time: 0s</p>
+                <div class="menu-buttons">
+                    <button id="btn-next" class="menu-btn primary">Next Level →</button>
+                    <button id="btn-win-menu" class="menu-btn">🏠 Main Menu</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- HUD -->
+        <div id="hud" class="hud hidden">
+            <div class="hud-left">
+                <span id="hud-lives" class="hud-item">❤️❤️❤️</span>
+                <span id="hud-score" class="hud-item">🌟 0</span>
+            </div>
+            <div class="hud-center">
+                <span id="hud-level" class="hud-item">Level 1</span>
+            </div>
+            <div class="hud-right">
+                <span id="hud-time" class="hud-item">⏱ 0s</span>
+            </div>
+        </div>
+
+        <!-- Level Intro -->
+        <div id="level-intro" class="level-intro hidden">
+            <h2 id="level-intro-text">Level 1</h2>
+            <p id="level-intro-name">Cosmic Meadows</p>
+        </div>
+    </div>
+
+    <script src="engine.js"></script>
+    <script src="entities.js"></script>
+    <script src="levels.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
